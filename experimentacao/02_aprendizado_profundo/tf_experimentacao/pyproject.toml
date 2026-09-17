@@ -1,0 +1,13 @@
+[project]
+name = "sprint3"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = [
+    "core",
+    "numpy>=2.4.4",
+    "scikit-learn>=1.8.0",
+    "tensorflow[and-cuda]==2.20.0",
+]
+
+[tool.uv.sources]
+core = { path = "../libs", editable = true }

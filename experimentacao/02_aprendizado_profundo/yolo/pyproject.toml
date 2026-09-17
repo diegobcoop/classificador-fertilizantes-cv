@@ -1,0 +1,63 @@
+#[project]
+#name = "validacao-pt"
+#version = "0.1.0"
+#requires-python = ">=3.12"
+#dependencies = [
+#    "core",
+#    "matplotlib>=3.10.8",
+#    "pandas>=3.0.2",
+#    "scikit-learn>=1.8.0",
+#    "timm>=1.0.26",
+#    "torch>=2.11.0",
+#    "torchvision>=0.26.0",
+#    "ultralytics>=8.4.46",
+#]
+
+#[project]
+#name = "validacao-pt"
+#version = "0.1.0"
+#requires-python = ">=3.12"
+#dependencies = [
+#    "core",
+#    "matplotlib>=3.10.8",
+#    "pandas>=3.0.2",
+#    "scikit-learn>=1.8.0",
+#    "timm>=1.0.26",
+#    "torch>=2.11.0",      # Versão compatível com cu121 ou cu124
+#    "torchvision>=0.20.0",
+#    "ultralytics>=8.4.46",
+#]
+
+[project]
+name = "validacao-pt"
+version = "0.1.0"
+# Limitamos para a versão que você está usando para evitar que o uv tente resolver para o futuro (3.14)
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "core",
+    "matplotlib>=3.10.0",
+    "pandas>=2.2.0",
+    "scikit-learn>=1.5.0",
+    "timm>=1.0.0",
+    "torch==2.5.1",
+    "torchvision==0.20.1",
+    "ultralytics>=8.4.115",
+    "fastapi>=0.115.0",
+    "uvicorn>=0.30.0",
+    "python-multipart>=0.0.12",
+    "ipykernel>=7.3.0",
+    "pip>=26.2.1",
+]
+
+
+# 1. Definir onde o uv deve buscar os pacotes de GPU
+[[tool.uv.index]]
+name = "pytorch-cu121"
+url = "https://download.pytorch.org/whl/cu121"
+explicit = true
+
+# 2. Vincular as bibliotecas específicas ao índice da NVIDIA/PyTorch
+[tool.uv.sources]
+core = { path = "../libs", editable = true }
+torch = { index = "pytorch-cu121" }
+torchvision = { index = "pytorch-cu121" }

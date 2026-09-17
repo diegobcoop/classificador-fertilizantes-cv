@@ -1,0 +1,26 @@
+[project]
+name = "producao-yolo"
+version = "1.0.0"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "matplotlib>=3.10.0",
+    "pandas>=2.2.0",
+    "scikit-learn>=1.5.0",
+    "timm>=1.0.0",
+    "torch==2.5.1",
+    "torchvision==0.20.1",
+    "ultralytics>=8.4.115",
+    "fastapi>=0.115.0",
+    "uvicorn>=0.30.0",
+    "python-multipart>=0.0.12",
+    "requests>=2.32.0",
+]
+
+[[tool.uv.index]]
+name = "pytorch-cu121"
+url = "https://download.pytorch.org/whl/cu121"
+explicit = true
+
+[tool.uv.sources]
+torch = { index = "pytorch-cu121" }
+torchvision = { index = "pytorch-cu121" }
